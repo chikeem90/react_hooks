@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-
+import useInput from "./useInput";
 import "./styles.css";
 
-const useInput = initialValue => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = (event) => {
-    console.log(event.target);
-  }
-  return {value, onChange};
-}
-
 const App = () => {
-  const name = useInput("Mr.");
+  // 길이 validate
+  const maxLen = value => value.length <= 10;
+  const name = useInput("Mr.", maxLen);
   return (
-    <div className="App">
+    <div className="App">\
       <h1>Hello</h1>
       <input placeholder="Name" {...name} />
     </div>
