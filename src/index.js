@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import useTabs from "./useTabs";
 
 const content = [
   {
@@ -11,17 +12,6 @@ const content = [
     content: "I'm the content of the Section 2"
   }
 ]
-
-const useTabs = (initialTab, allTabs) => {
-  const [currentIndex, setCurrentIndex] = useState(initialTab);
-  if (!allTabs || !Array.isArray(allTabs)) {
-    return;
-  }
-  return { 
-    currentItem: allTabs[currentIndex],
-    changeItem: setCurrentIndex
-  };
-}
 
 const App = () => {
   const {currentItem, changeItem} = useTabs(0, content);
